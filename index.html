@@ -1,14 +1,30 @@
-<!DOCTYPE html>
-<html>
- <head>
-  <meta charset="utf-8">
-  <title>video</title>
- </head>
- <body>
-  <video width="400" height="300" controls="controls" poster="video/duel.jpg">
-   <source src="sample-mp4-file.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-   Тег video не поддерживается вашим браузером. 
-   <a href="sample-mp4-file.mp4">Скачайте видео</a>.
+<head>
+  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+</head>
+
+<body>
+  <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MY_VIDEO_POSTER.jpg"
+    data-setup="{}"
+  >
+    <source src="sample-mp4-file.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
   </video>
- </body>
-</html>
+
+  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+</body>
