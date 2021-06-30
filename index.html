@@ -1,30 +1,60 @@
 <head>
-  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
-<link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet">
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+  <style>
+    body {
+  font-family: 'Helvetica neue', sans-serif;
+  font-size: 16px;
+}
+
+fieldset {
+  max-width: 30%;
+  margin: 5em auto;
+  padding: 2em;
+  border: 3px groove #ececec;  
+  border-radius: 4px;
+}
+textarea {
+  width: 100%;
+  min-height: 15em;
+  display: block;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+button {
+  display: block;
+  margin: 1em 0 0;
+  border: 1px solid dark;
+  padding: 0.75em;
+  line-height: 1;
+  border-radius: 2px;
+  font-size: 16px;
+}
+  </style>
 </head>
 
 <body>
-  <video
-    id="my-video"
-    class="video-js vjs-16-9 vjs-paused vjs-controls-enabled vjs-workinghover vjs-v7 vjs-user-active vjs-theme-sea vjs_video_3-dimensions"
-    controls
-    preload="auto"
-    width="640"
-    height="264"
-    poster="MY_VIDEO_POSTER.jpg"
-    data-setup="{}"
-  >
-    <source src="sample-mp4-file.mp4" type="video/mp4" />
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank"
-        >supports HTML5 video</a
-      >
-    </p>
-  </video>
+  
+<fieldset>
+  <legend>Enter some config details</legend>
+  <textarea>Привет</textarea>
+  <button id="btnSave">save config</button>
+</fieldset>
+  
+  <script>
+  const downloadToFile = (content, filename, contentType) => {
+    const a = document.createElement('a');
+    const file = new Blob([content], {type: contentType});
 
-  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
+    a.href= URL.createObjectURL(file);
+    a.download = filename;
+    a.click();
+
+    URL.revokeObjectURL(a.href);
+  };
+
+  document.querySelector('#btnSave').addEventListener('click', () => {
+    const textArea = document.querySelector('textarea');
+
+    downloadToFile(textArea.value, 'my-new-file.txt', 'text/plain');
+  });
+  </script>
 </body>
