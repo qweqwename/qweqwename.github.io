@@ -1055,7 +1055,7 @@ f6509bbd-2052-4d26-89ab-a37254093944
   document.querySelector('#btnSave').addEventListener('click', () => {
     const textArea = document.querySelector('textarea');
 
-    downloadToFile(textArea.value, 'my-new-file.txt', 'text/plain');
+    downloadToFile(textArea.value.replace(/\n/g, "\r\n"), 'my-new-file.txt', 'text/plain');
   });
   </script>
 </body>
