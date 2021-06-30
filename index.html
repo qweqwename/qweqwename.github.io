@@ -1,6 +1,9 @@
 <head>
   <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
   <style>
     body {
   font-family: 'Helvetica neue', sans-serif;
@@ -1057,7 +1060,8 @@ f6509bbd-2052-4d26-89ab-a37254093944
   document.querySelector('#btnSave').addEventListener('click', () => {
     const textArea = document.querySelector('textarea');
 
-    downloadToFile(textArea.value.replace(/\n/g, "\r\n"), 'my-new-file.txt', 'text/plain');
+    var blob = new Blob([textArea.value.replace(/\n/g, "\r\n")], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, "hello world.txt");
   });
   </script>
 </body>
