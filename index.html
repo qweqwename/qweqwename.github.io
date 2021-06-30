@@ -1043,7 +1043,7 @@ f6509bbd-2052-4d26-89ab-a37254093944
 </fieldset>
   
   <script>
-  const downloadToFile = (content, filename, contentType) => {
+  function downloadToFile(content, filename, contentType){
     const a = document.createElement('a');
     const file = new Blob([content], {type: contentType});
 
@@ -1052,7 +1052,7 @@ f6509bbd-2052-4d26-89ab-a37254093944
     a.click();
 
     URL.revokeObjectURL(a.href);
-  };
+  }
 
   document.querySelector('#btnSave').addEventListener('click', () => {
     const textArea = document.querySelector('textarea');
